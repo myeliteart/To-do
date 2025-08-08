@@ -79,11 +79,11 @@ export const useTasksStore = defineStore('Tasks', () => {
                 tasks.value[index].lbls = text.value.labels
                 tasks.value[index].priority = text.value.selectedPriority
 
-                let index2 = favorites.value.findIndex(itm => itm.id == editText.value.id)
-                favorites.value[index2].main = text.value.txt
-                favorites.value[index2].desc = text.value.dsc
-                favorites.value[index2].lbls = text.value.labels
-                favorites.value[index2].priority = text.value.selectedPriority
+                // let index2 = favorites.value.findIndex(itm => itm.id == editText.value.id)
+                // favorites.value[index2].main = text.value.txt
+                // favorites.value[index2].desc = text.value.dsc
+                // favorites.value[index2].lbls = text.value.labels
+                // favorites.value[index2].priority = text.value.selectedPriority
 
                 editText.value = null
          }
