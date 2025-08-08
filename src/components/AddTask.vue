@@ -1,7 +1,7 @@
 <template>
-     <div class="rounded-lg border border-gray-400 p-3 max-w-[100%] w-full">
-             <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none  max-w-[100%] w-full" placeholder="New Task"> <br>
-             <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm max-w-[100%] w-full"></textarea> <br>
+     <div class="rounded-lg border border-gray-400 p-3">
+             <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none" placeholder="New Task"> <br>
+             <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm"></textarea> <br>
           <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center">
             <div>
                 <select v-model="store.text.selectedPriority" class="mr-9 focus:outline-none p-0 rounded-md cursor-pointer text-gray-600">
