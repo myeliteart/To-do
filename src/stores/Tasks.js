@@ -84,7 +84,7 @@ export const useTasksStore = defineStore('Tasks', () => {
                 // favorites.value[index2].desc = text.value.dsc
                 // favorites.value[index2].lbls = text.value.labels
                 // favorites.value[index2].priority = text.value.selectedPriority
-
+                text.value.labels = []
                 editText.value = null
          }
          console.log(tasks.value);
@@ -255,7 +255,7 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
      const taskWithLabel = computed(() => {
-        return tasks.value.filter(tsk => tsk.lbls == findTasksWithLabel.value)
+        return tasks.value.filter(tsk => tsk.lbls.includes(findTasksWithLabel.value))
      })
 
      console.log(taskWithLabel.value)
