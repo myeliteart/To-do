@@ -13,10 +13,10 @@
                         <div>
                             <div class="flex flex-row items-center">
                                 <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointe" @change="store.completed(element)">
-                                <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word w-32 sm:w-48 lg:w-[630px] flex-grow"> {{ element.main }}</div>
+                                <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-32 sm:max-w-48 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
                             </div>
 
-                            <div class="mt-1 wrap-break-word flex-grow w-32 sm:w-48 lg:w-[630px]">
+                            <div class="mt-1 wrap-break-word flex-grow max-w-32 sm:max-w-48 lg:max-w-[630px]">
                                 <small class="block">{{ element.desc }}</small>
                             </div>
                         
