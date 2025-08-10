@@ -32,7 +32,7 @@
     <teleport to="body">
             <base-dialog v-if="store.modalforLabel">
                 <div class="text-end pr-2 pt-2 cursor-pointer" @click="store.modalforLabel = false"><font-awesome-icon :icon="['fas', 'xmark']"></font-awesome-icon></div>
-                <div class="py-6 px-7 sm:w-110 md:w-130 w-95 sm:max-w-110 md:max-w-130 max-w-95">
+                <div class="py-6 px-7 wrap-break-word">
                     <div class="flex flex-col mb-3">
                         <label>Label Note</label>
                         <input v-model.trim="store.text.createLabel" type="text" class="border border-gray-500 focus:outline-none p-2 mt-1 rounded-sm" placeholder="Enter label name">
@@ -48,7 +48,7 @@
 
         <teleport to="body">
             <base-dialog v-if="store.modalDeleteLabel">
-                <div class="py-6 px-7 sm:max-w-115 max-w-96 wrap-break-word">
+                <div class="py-6 px-7 wrap-break-word">
                     <div class="text-lg"> {{ `Are you sure you want to delete '${store.modalDeleteLabel.txt }'` }}</div>
                     <div class="flex flex-row justify-end items-center mt-4">
                          <base-button @click="store.cancelDeletion" mode="reverse" class="mr-3">Cancel</base-button>
