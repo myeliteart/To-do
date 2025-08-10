@@ -34,7 +34,7 @@
                             <font-awesome-icon @click="store.edited(element)" :icon="['fas', 'pen']" class="cursor-pointer mr-4 text-gray-500" />
                             <font-awesome-icon @click="store.trashIt(element)" :icon="['fas', 'trash']" class="cursor-pointer mr-4 text-gray-500" />
                             <font-awesome-icon @click="store.addToFav(element)" :icon="['fas', 'heart']" :class="store.favorites.find(itm => itm.main == element.main) ? 'text-red-600' : 'text-gray-500'"  class="cursor-pointer"/>
-                            <font-awesome-icon  @mouseover="store.isHovered = true" @mouseleave="store.isHovered = false" :icon="['fas', 'grip-vertical']" class="ml-5 sm:block hidden" :class="{'draggable-active': store.isHovered}"></font-awesome-icon>
+                            <font-awesome-icon  @mouseover="store.isHovered = true" @mouseleave="store.isHovered = false" :icon="['fas', 'grip-vertical']" class="ml-0 sm:ml-5 hidden sm:block" :class="{'draggable-active': store.isHovered}"></font-awesome-icon>
                         </div>
                  </div>
             </div>
