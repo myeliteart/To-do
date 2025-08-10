@@ -3,7 +3,7 @@
              <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow" placeholder="New Task"> <br>
              <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow"></textarea> <br>
           <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center">
-            <div>
+            <div class="w-full">
                 <select v-model="store.text.selectedPriority" class="mr-9 focus:outline-none p-0 rounded-md cursor-pointer text-gray-600">
                     <option v-for="p in store.priority.level" :value="p">
                         {{ p }} Priority
