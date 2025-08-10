@@ -31,7 +31,7 @@ export const useTasksStore = defineStore('Tasks', () => {
              txt: '',
              dsc: '',
              createLabel: '',
-             labels: [],
+             checkedLabels: [],
              selectedPriority: 'High'
            });
 
@@ -65,26 +65,21 @@ export const useTasksStore = defineStore('Tasks', () => {
                 id: tasks.value.length + 1,
                 main: text.value.txt,
                 desc: text.value.dsc,
-                lbls: text.value.labels,
+                lbls: text.value.checkedLabels,
                 priority: text.value.selectedPriority
             }
                  tasks.value.unshift(eli)
                  taskCount.value++
-                 text.value.labels = []
+                 text.value.checkedLabels = []
             }
          } else {
                 let index = tasks.value.findIndex(itm => itm.id == editText.value.id)
                 tasks.value[index].main = text.value.txt
                 tasks.value[index].desc = text.value.dsc
-                tasks.value[index].lbls = text.value.labels
+                tasks.value[index].lbls = text.value.checkedLabels
                 tasks.value[index].priority = text.value.selectedPriority
 
-                // let index2 = favorites.value.findIndex(itm => itm.id == editText.value.id)
-                // favorites.value[index2].main = text.value.txt
-                // favorites.value[index2].desc = text.value.dsc
-                // favorites.value[index2].lbls = text.value.labels
-                // favorites.value[index2].priority = text.value.selectedPriority
-                text.value.labels = []
+                text.value.checkedLabels = []
                 editText.value = null
          }
          console.log(tasks.value);
@@ -179,13 +174,12 @@ export const useTasksStore = defineStore('Tasks', () => {
      const edited = (task) => {
         text.value.txt = task.main
         text.value.dsc = task.desc
-        text.value.labels = task.lbls
+        text.value.checkedLabels = task.lbls
         text.value.selectedPriority = task.priority
         editText.value = task
      }
 
      const suggesionResult = (result) => {
-    //   router.push({name: 'searchResults', params: {id: result.main.toLowerCase().split(' ').join('-')}})
       search.value = result.main;
       searchItem.value = result
      }
@@ -194,7 +188,7 @@ export const useTasksStore = defineStore('Tasks', () => {
        const alreadyExists = labels.value.find(
         lbl => lbl.txt === text.value.createLabel
     )
-    const tooShort = text.value.createLabel.trim().length < 3
+    const tooShort = text.value.createLabel.length < 3
      if (!alreadyExists && !tooShort) {
              const newLabel = {
                 id: labels.value.length + 1,
@@ -251,24 +245,22 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
      const toggleMenu = () => {
-    isMenuOpen.value = !isMenuOpen.value;
-    };
+      isMenuOpen.value = !isMenuOpen.value;
+      };
 
     const closeMobileMenu = () => {
         isMenuOpen.value = false
      }
 
    const taskWithLabel = computed(() => { 
-    return tasks.value.filter(tsk => 
-        tsk.lbls.some(lbl => lbl.id === findTasksWithLabel.value.id)
-    )
+    return tasks.value.filter(tsk => tsk.lbls.some(lbl => lbl.id === findTasksWithLabel.value.id))
 })
 
      console.log(taskWithLabel.value)
 
 
      const findLabels = computed(() => {
-        return labels.value.find(lb => lb.txt.toLowerCase().split(' ').join('-') == route.params.id);
+        return labels.value.find(lbl => lbl.txt.toLowerCase().split(' ').join('-') == route.params.id);
         
      })
 

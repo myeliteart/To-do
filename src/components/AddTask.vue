@@ -31,7 +31,7 @@
                         <input v-model="store.text.createLabel" type="text" class="border border-gray-500 focus:outline-none p-2 mt-1 rounded-sm" placeholder="Enter label name">
                     </div>
                     <div class="flex flex-row items-center leading-8" v-for="lbl in store.labels">
-                        <input type="checkbox" v-model="store.text.labels" :name="store.text.labels" :value="lbl.txt">
+                        <input type="checkbox" v-model="store.text.checkedLabels" :name="store.text.checkedLabels" :value="lbl.txt">
                         <label class="ml-2 wrap-break-word max-w-[93%]">{{ lbl.txt }}</label>
                     </div>
                     <div class="flex flex-row justify-end items-center mt-4">
@@ -66,7 +66,7 @@
      const disabling2 = computed(() => {
         return store.text.createLabel.length < 3 || store.labels.find(lbl => lbl == store.text.createLabel)
     })
-    console.log(store.text.labels)
+    console.log(store.text.checkedLabels)
 </script>
 
 <style scoped>
