@@ -13,10 +13,10 @@
                         <div>
                             <div class="flex flex-row items-center">
                                 <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointe" @change="store.completed(element)">
-                                <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-40 sm:max-w-48 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
+                                <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-40 sm:max-w-64 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
                             </div>
 
-                            <div class="mt-1 wrap-break-word flex-grow max-w-40 sm:max-w-48 lg:max-w-[630px]">
+                            <div class="mt-1 wrap-break-word flex-grow max-w-40 sm:max-w-64 lg:max-w-[630px]">
                                 <small class="block">{{ element.desc }}</small>
                             </div>
                         
@@ -34,7 +34,7 @@
                             <font-awesome-icon @click="store.edited(element)" :icon="['fas', 'pen']" class="cursor-pointer mr-4 text-gray-500" />
                             <font-awesome-icon @click="store.trashIt(element)" :icon="['fas', 'trash']" class="cursor-pointer mr-4 text-gray-500" />
                             <font-awesome-icon @click="store.addToFav(element)" :icon="['fas', 'heart']" :class="store.favorites.find(itm => itm.main == element.main) ? 'text-red-600' : 'text-gray-500'"  class="cursor-pointer"/>
-                            <div class="hidden md:block"><font-awesome-icon  @mouseover="store.isHovered = true" @mouseleave="store.isHovered = false" :icon="['fas', 'grip-vertical']" class="ml-5" :class="{'draggable-active': store.isHovered}"></font-awesome-icon></div>
+                            <div class="hidden lg:block"><font-awesome-icon  @mouseover="store.isHovered = true" @mouseleave="store.isHovered = false" :icon="['fas', 'grip-vertical']" class="ml-5" :class="{'draggable-active': store.isHovered}"></font-awesome-icon></div>
                         </div>
                  </div>
             </div>
