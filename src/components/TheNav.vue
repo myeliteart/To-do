@@ -1,11 +1,11 @@
 <template>
     <nav class="md:hidden bg-gray-100 list-none">
         <div class="flex flex-row justify-between items-center">
-                <router-link to="/" class="text-gray-600 pt-2 pl-5">
+                <router-link to="/" class="text-gray-600 pt-2 pl-6">
                     <h2 @click="" class="text-bigger-heading font-bold mb-2.5 text-red-600 font-ds">To Do App</h2>
                 </router-link>
 
-            <button @click="store.toggleMenu" class="pr-5 cursor-pointer">
+            <button @click="store.toggleMenu" class="pr-6 cursor-pointer">
                 <span class="block h-0.5 w-6 bg-gray-700 mb-1"></span>
                 <span class="block h-0.5 w-6 bg-gray-700 mb-1"></span>
                 <span class="block h-0.5 w-6 bg-gray-700"></span>
@@ -14,9 +14,9 @@
 
           <!-- Mobile Menu -->
            
-         <div v-if="store.isMenuOpen" class="bg-gray-100  border-b-2 border-b-gray-600 fixed top-0 right-0 w-full z-50 flex flex-col px-0 leading-14">
-             <div class="flex flex-row justify-between items-center">
-                <router-link to="/" class="text-gray-600 pt-1 pl-5" @click="store.closeMobileMenu">
+         <div v-if="store.isMenuOpen" class="bg-gray-100 border-b-2 border-b-gray-600 fixed top-0 right-0 w-full z-50 flex flex-col px-0 leading-14">
+             <div class="flex flex-row justify-between items-center px-6">
+                <router-link to="/" class="text-gray-600 pt-1" @click="store.closeMobileMenu">
                     <h2 @click="" class="text-bigger-heading font-bold mb-2.5 text-red-600 font-ds">To Do App</h2>
                 </router-link>
 
@@ -25,8 +25,8 @@
                 </button>
             </div>
             
-        <ul class=" pt-3">
-             <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6">
+        <ul class="pt-3">
+             <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-7">
                 <router-link to="/" class="block text-gray-600" @click="store.closeMobileMenu">
                     <font-awesome-icon :icon="['fas', 'inbox']" class="mr-1"></font-awesome-icon> 
                     Inbox
@@ -34,14 +34,14 @@
                   <small>{{ store.taskCount }}</small>
              </li>
              
-               <li  v-if="store.tasks.length" class="border-t-1 border-t-gray-400 px-6">
+               <li  v-if="store.tasks.length" class="border-t-1 border-t-gray-400 px-7">
                 <router-link to="/search" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'magnifying-glass']" class="mr-1"></font-awesome-icon> 
                    Search
                 </router-link>
              </li>
 
-              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6" v-if="store.completedItems.length">
+              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-7" v-if="store.completedItems.length">
                 <router-link to="/completed" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'list']" class="mr-1"></font-awesome-icon> 
                    Completed
@@ -49,7 +49,7 @@
                   <small>{{ store.completedCount }}</small>
              </li>
 
-               <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6">
+               <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-7">
                 <router-link to="/labels" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'tag']" class="mr-1"></font-awesome-icon> 
                    Labels
@@ -57,7 +57,7 @@
                   <small>{{ store.labelCount }}</small>
              </li>
 
-              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6" v-if="store.favorites.length">
+              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-7" v-if="store.favorites.length">
                 <router-link to="/favorites" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'heart']" class="mr-1"></font-awesome-icon> 
                    Favorites
@@ -70,7 +70,7 @@
     
       <!-- desktop Menu -->
 
-    <ul class="p-6 md:w-64 md:px-7 px-8 leading-10 hidden md:block bg-gray-100">
+    <ul class="py-6 md:w-64 md:px-7 leading-10 hidden md:block bg-gray-100">
          <li class="flex flex-row">
             <router-link to="/" class="text-gray-600">
                  <h2 @click="" class="text-bigger-heading font-bold mb-2.5 text-red-600 font-ds">To Do App</h2>
