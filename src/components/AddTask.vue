@@ -35,8 +35,8 @@
                         <label class="ml-2 wrap-break-word max-w-[93%]">{{ lbl.txt }}</label>
                     </div>
                     <div class="flex flex-row justify-end items-center mt-4">
-                        <base-button @click="store.modalforLabel = false" :mode="disabling2 ? 'disabled2' : 'reverse'" class="mr-3">Cancel</base-button>
-                        <base-button @click="store.addLabel" :class="store.text.createLabel.length < 3  || store.tasks.find(tsk => tsk.main == store.text.createLabel) ? 'disabled' : ''">Save</base-button>
+                        <base-button @click="store.cancelLabel" :mode="disabling2 ? 'disabled2' : 'reverse'" class="mr-3">Cancel</base-button>
+                        <base-button @click="store.addLabel" :class="store.text.createLabel.length < 3  || store.tasks.find(tsk => tsk.main == store.text.createLabel) ? 'disabled' : ''">Create</base-button>
                     </div>
                 </div>
             </base-dialog>
