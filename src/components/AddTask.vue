@@ -13,8 +13,8 @@
             </div>
         <div class="flex flex-row sm:justify-end mt-5 sm:mt-0 items-center w-full">
              <base-button :mode="disabling1 ? 'disabled2' : 'reverse'" @click="store.cancel">Cancel</base-button>
-             <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-3">
-                <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1 w-full"/>
+             <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-3 w-full">
+                <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1"/>
                  {{ store.editText == null ? 'Add' : 'Edit' }} Task
             </base-button>
         </div>
