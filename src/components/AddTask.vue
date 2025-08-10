@@ -2,8 +2,8 @@
      <div class="rounded-lg border border-gray-400 p-3 w-full">
              <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow" placeholder="New Task"> <br>
              <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow"></textarea> <br>
-          <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center">
-            <div class="w-full">
+          <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center w-full">
+            <div>
                 <select v-model="store.text.selectedPriority" class="mr-9 focus:outline-none p-0 rounded-md cursor-pointer text-gray-600">
                     <option v-for="p in store.priority.level" :value="p">
                         {{ p }} Priority
@@ -13,7 +13,7 @@
             </div>
         <div class="flex flex-row sm:justify-end mt-5 sm:mt-0 items-center w-full">
              <base-button :mode="disabling1 ? 'disabled2' : 'reverse'" @click="store.cancel">Cancel</base-button>
-             <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-3 w-fit">
+             <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-3">
                 <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1"/>
                  {{ store.editText == null ? 'Add' : 'Edit' }} Task
             </base-button>
