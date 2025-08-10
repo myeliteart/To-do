@@ -32,7 +32,7 @@
                     </div>
                     <div class="flex flex-row items-center leading-8" v-for="lbl in store.labels">
                         <input type="checkbox" v-model="store.text.labels" :name="store.text.labels" :value="lbl.txt">
-                        <label class="ml-2 wrap-break-word">{{ lbl.txt }}</label>
+                        <label class="ml-2 wrap-break-word max-w-[93%]">{{ lbl.txt }}</label>
                     </div>
                     <div class="flex flex-row justify-end items-center mt-4">
                         <base-button @click="store.modalforLabel = false" :mode="disabling2 ? 'disabled2' : 'reverse'" class="mr-3">Cancel</base-button>
