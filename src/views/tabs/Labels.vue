@@ -40,7 +40,7 @@
                   
                     <div class="flex flex-row justify-end items-center mt-4">
                         <base-button :mode="disabling ? 'disabled2' : 'reverse'" @click="store.cancelLabel" class="mr-3">Cancel</base-button>
-                        <base-button @click="store.addLabel" :class="store.text.createLabel.length < 3  || store.labels.find(lbl => lbl.txt == store.text.createLabel) ? 'disabled' : ''">Save</base-button>
+                        <base-button @click="store.addLabel" :class="store.text.createLabel.length < 3  || store.labels.find(lbl => lbl.txt == store.text.createLabel) ? 'disabled' : ''">Create</base-button>
                     </div>
                 </div>
             </base-dialog>
