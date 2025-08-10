@@ -44,7 +44,7 @@
 
         <teleport to="body">
             <base-dialog v-if="store.modal">
-                <div class="py-6 px-7 sm:max-w-115 max-w-96 wrap-break-word">
+                <div class="py-6 px-7 wrap-break-word">
                     <div class="text-lg"> {{ `Are you sure you want to delete '${store.modal.main}'` }}</div>
                     <div class="flex flex-row justify-end items-center mt-4">
                          <base-button @click="store.cancelDeletion" mode="reverse" class="mr-3">Cancel</base-button>
