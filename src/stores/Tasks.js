@@ -86,6 +86,7 @@ export const useTasksStore = defineStore('Tasks', () => {
 
         text.value.txt = ''
         text.value.dsc = ''
+        text.value.selectedPriority = 'High'
     }
 
     const addToFav = (task) => {
