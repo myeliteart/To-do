@@ -10,10 +10,10 @@
                        
                         <div class="flex flex-row items-center wrap-break-word">
                             <input type="checkbox" v-model="store.completedItems" :value="fav.main" class="cursor-pointer" @change="store.completed(fav)">
-                            <div :class="store.completedItems.find(itm => itm == fav.main) ? 'strike' : ''" class="wrap-break-word ml-2 flex-grow"> {{ fav.main }}</div>
+                            <div :class="store.completedItems.find(itm => itm == fav.main) ? 'strike' : ''" class="wrap-break-word max-w-64 sm:max-w-80 lg:max-w-[630px] ml-2 flex-grow"> {{ fav.main }}</div>
                         </div>
                         
-                         <div class="wrap-break-word flex-grow">
+                         <div class="wrap-break-word flex-grow max-w-64 sm:max-w-80 lg:max-w-[630px]">
                                <small class="block">{{ fav.desc }}</small>
 
                                <div v-for="itm in fav.lbls" class="flex flex-row mt-2 cursor-pointer">
