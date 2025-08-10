@@ -9,13 +9,12 @@
                         {{ p }} Priority
                     </option>
                 </select>
-             <!-- <button class="cursor-pointer mr-9" @click="store.modalforPriority = true">Add Priority</button> -->
              <button class="cursor-pointer text-gray-600" @click="store.modalforLabel = true">Add Label</button>
             </div>
         <div class="flex flex-row sm:justify-end mt-5 sm:mt-0 items-center w-full">
              <base-button :mode="disabling1 ? 'disabled2' : 'reverse'" @click="store.cancel">Cancel</base-button>
              <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-3">
-                <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1"/>
+                <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1 w-full"/>
                  {{ store.editText == null ? 'Add' : 'Edit' }} Task
             </base-button>
         </div>
