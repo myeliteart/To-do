@@ -32,12 +32,12 @@ export const useTasksStore = defineStore('Tasks', () => {
              dsc: '',
              createLabel: '',
              checkedLabels: [],
-             selectedPriority: 'High'
+             selectedPriority: ''
            });
 
            let priority = ref(
             {
-                level: ['High', 'Medium', 'Low', 'No']
+                level: ['High', 'Medium', 'Low', 'No', '']
             }
            )
           const editText = ref(null);
@@ -86,7 +86,7 @@ export const useTasksStore = defineStore('Tasks', () => {
 
         text.value.txt = ''
         text.value.dsc = ''
-        text.value.selectedPriority = 'High'
+        text.value.selectedPriority = ''
     }
 
     const addToFav = (task) => {
