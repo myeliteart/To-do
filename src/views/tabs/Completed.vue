@@ -1,4 +1,8 @@
 <template>
+    <div v-if="!store.completedItems.length" class="text-center mt-11">
+         <p>Completed tasks is currently empty</p>
+         <base-button @click="router.push('/')" mode="reverse" class="mt-3">Go to inbox</base-button>
+    </div>
     <div v-if="store.completedItems.length">
         <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
         <p class="pb-1 mb-0 text-heading border-b-1 border-b-gray-400">Completed</p>

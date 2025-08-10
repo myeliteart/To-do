@@ -1,4 +1,9 @@
 <template>
+    <div v-if="!store.favorites.length" class="text-center mt-11">
+         <p>Favorites tasks is currently empty</p>
+         <base-button @click="router.push('/')" mode="reverse" class="mt-3">Go to inbox</base-button>
+    </div>
+   
     <div v-if="store.favorites.length">
      <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
     <p class="pb-0 text-heading border-b-1 border-b-gray-400">Favorites</p>
@@ -39,7 +44,7 @@
         </div>
          <teleport to="body">
             <base-dialog v-if="store.modalFav">
-                <div class="py-6 px-7 sm:max-w-115 max-w-96 wrap-break-word">
+                <div class="py-6 px-7 wrap-break-word">
                     <div class="text-lg"> {{ `Are you sure you want to delete '${store.modalFav.main}'` }}</div>
                     <div class="flex flex-row justify-end items-center mt-4">
                          <base-button @click="store.cancelDeletion" mode="reverse" class="mr-3">Cancel</base-button>
