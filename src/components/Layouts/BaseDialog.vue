@@ -1,6 +1,6 @@
 <template>
     <div @click="store.cancelDeletion"></div>
-    <dialog open>
+    <dialog open  class="w-[70%] sm:w-[60%] md:w-[50%] lg:w-[35%]">
         <slot></slot>
     </dialog>
 </template>
