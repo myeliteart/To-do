@@ -198,7 +198,6 @@ export const useTasksStore = defineStore('Tasks', () => {
             labels.value.unshift(newLabel)
             editableLabel.value = newLabel.txt
             labelCount.value++
-            modalforLabel.value = false
             text.value.createLabel = ''
      }
 
@@ -273,5 +272,5 @@ export const useTasksStore = defineStore('Tasks', () => {
         return tasks.value.find(task => task.main.toLowerCase().split(' ').join('-') == route.params.id);
     })
 
-  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, cancelLabel, closeMobileMenu, mySearch }
+  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, mySearch }
 })
