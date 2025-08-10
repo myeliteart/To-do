@@ -192,13 +192,13 @@ export const useTasksStore = defineStore('Tasks', () => {
 
      const addLabel = () => {
        const alreadyExists = labels.value.find(
-        lbl => lbl.txt === text.value.createLabel.trim()
+        lbl => lbl.txt === text.value.createLabel
     )
     const tooShort = text.value.createLabel.trim().length < 3
      if (!alreadyExists && !tooShort) {
              const newLabel = {
-                id: labels.value.length ? Math.max(...labels.value.map(l => l.id)) + 1 : 1,
-                txt: text.value.createLabel.trim()
+                id: labels.value.length + 1,
+                txt: text.value.createLabel
             }
             labels.value.unshift(newLabel)
             editableLabel.value = newLabel.txt
