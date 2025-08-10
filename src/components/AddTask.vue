@@ -1,7 +1,7 @@
 <template>
      <div class="rounded-lg border border-gray-500 p-3 w-full">
-             <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow" placeholder="Task name"> <br>
-             <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow"></textarea> <br>
+             <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-medium focus:outline-none w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow" placeholder="Task name"> <br>
+             <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow mt-1"></textarea> <br>
           <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center w-full">
             <div class="w-full">
                 <select v-model="store.text.selectedPriority" class="mr-9 focus:outline-none border border-gray-300 p-2 rounded-sm cursor-pointer text-gray-600">
@@ -9,7 +9,7 @@
                         {{ p }} Priority
                     </option>
                 </select>
-             <button class="cursor-pointer text-gray-600" @click="store.modalforLabel = true">Add Label</button>
+             <button class="cursor-pointer text-gray-600 mt-2" @click="store.modalforLabel = true">Add Label</button>
             </div>
         <div class="flex flex-row sm:justify-end mt-5 sm:mt-0 items-center w-full">
              <base-button :mode="disabling1 ? 'disabled2' : 'reverse'" @click="store.cancel">Cancel</base-button>

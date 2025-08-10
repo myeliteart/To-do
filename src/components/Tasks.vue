@@ -2,11 +2,11 @@
         <draggable  
              v-model="store.tasks"
              :disabled="!store.isHovered"
-            item-key="name"
+            item-key="id"
             class="list-group"
             ghost-class="ghost"
             >
-    <template #item="{ element }">
+    <template #item="{ element }" >
             <div class="text-gray-600 border-t-1 border-t-gray-400 w-full">
                <div class="py-4">
                    <div class="flex flex-row items-center justify-between">
@@ -16,7 +16,7 @@
                                 <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-40 sm:max-w-64 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
                             </div>
 
-                            <div class="mt-1 wrap-break-word flex-grow max-w-40 sm:max-w-64 lg:max-w-[630px]">
+                            <div class="mt-2 wrap-break-word flex-grow max-w-40 sm:max-w-64 lg:max-w-[630px]">
                                 <small class="block">{{ element.desc }}</small>
                             </div>
                         
