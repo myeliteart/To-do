@@ -25,8 +25,8 @@
                                     <span @click="store.theLabelDetails(itm)" class="hover:underline">{{ itm }}</span>
                                 </div>
                                 <div class="flex flex-row items-center mt-2">
-                                    <font-awesome-icon :class="element.priority == 'High' ? 'text-red-600' : element.priority == 'Medium' ? 'text-amber-600' : element.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
-                                    <small class="ml-1" :class="element.priority == 'High' ? ' text-red-600' : element.priority == 'Medium' ? ' text-amber-600' : element.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ element.priority }} Priority</small>
+                                    <font-awesome-icon v-if="element.priority !== ''" :class="element.priority == 'High' ? 'text-red-600' : element.priority == 'Medium' ? 'text-amber-600' : element.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
+                                    <small v-if="element.priority !== ''" class="ml-1" :class="element.priority == 'High' ? ' text-red-600' : element.priority == 'Medium' ? ' text-amber-600' : element.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ element.priority }} Priority</small>
                                 </div>
                         </div> 
                             

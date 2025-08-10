@@ -5,7 +5,8 @@
           <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center w-full">
             <div class="w-full">
                 <select v-model="store.text.selectedPriority" class="mr-9 focus:outline-none border border-gray-300 p-2 rounded-sm cursor-pointer text-gray-600">
-                    <option v-for="p in store.priority.level" :value="p">
+                    <option value="" disabled selected>Please select</option>
+                    <option v-for="p in store.priority.level.slice(0, 4)" :value="p">
                         {{ p }} Priority
                     </option>
                 </select>
