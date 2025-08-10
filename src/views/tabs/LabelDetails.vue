@@ -3,7 +3,7 @@
          <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
          <p class="text-heading border-b-1 border-gray-400 pb-1 wrap-break-word">{{ store.findLabels.txt }}</p>
          <ul>
-            <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel">
+            <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel" :key="lblTsk.id">
                <div class="py-4">
                 <div class="flex flex-row items-center justify-between">
                     <div>
