@@ -27,7 +27,7 @@
             
         <ul class=" pt-3">
              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6">
-                <router-link to="/" class="block" @click="store.closeMobileMenu">
+                <router-link to="/" class="block text-gray-600" @click="store.closeMobileMenu">
                     <font-awesome-icon :icon="['fas', 'inbox']" class="mr-1"></font-awesome-icon> 
                     Inbox
                 </router-link>
@@ -35,14 +35,14 @@
              </li>
              
                <li  v-if="store.tasks.length" class="border-t-1 border-t-gray-400 px-6">
-                <router-link to="/search" class="block" @click="store.closeMobileMenu">
+                <router-link to="/search" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'magnifying-glass']" class="mr-1"></font-awesome-icon> 
                    Search
                 </router-link>
              </li>
 
               <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6" v-if="store.completedItems.length">
-                <router-link to="/completed" class="block" @click="store.closeMobileMenu">
+                <router-link to="/completed" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'list']" class="mr-1"></font-awesome-icon> 
                    Completed
                 </router-link>
@@ -50,7 +50,7 @@
              </li>
 
                <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6">
-                <router-link to="/labels" class="block" @click="store.closeMobileMenu">
+                <router-link to="/labels" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'tag']" class="mr-1"></font-awesome-icon> 
                    Labels
                 </router-link>
@@ -58,7 +58,7 @@
              </li>
 
               <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-6" v-if="store.favorites.length">
-                <router-link to="/favorites" class="block" @click="store.closeMobileMenu">
+                <router-link to="/favorites" class="block text-gray-600" @click="store.closeMobileMenu">
                    <font-awesome-icon :icon="['fas', 'heart']" class="mr-1"></font-awesome-icon> 
                    Favorites
                 </router-link>
