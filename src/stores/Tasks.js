@@ -94,22 +94,13 @@ export const useTasksStore = defineStore('Tasks', () => {
     }
 
     const addToFav = (task) => {
-         const here = favorites.value.find(fav => fav.main == task.main)
+         const here = favorites.value.find(fav => fav.id == task.id)
          if(!here) {    
-             favorites.value.unshift(
-            {
-                id: favorites.value.length + 1,
-                main: task.main,
-                desc: task.desc,
-                lbls: task.lbls,
-                priority: task.priority 
-            }
-        )
-        favoritesCount.value++
+             favorites.value.unshift(task)
+             favoritesCount.value++
          } else{
             return;
          }
-
           console.log(task.priority)
         }
        
