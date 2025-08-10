@@ -25,7 +25,7 @@
      <teleport to="body">
             <base-dialog v-if="store.modalforLabel">
                 <div class="text-end pr-2 pt-2 cursor-pointer" @click="store.modalforLabel = false"><font-awesome-icon :icon="['fas', 'xmark']"></font-awesome-icon></div>
-                <div class="py-6 px-7 sm:w-110 md:w-130 w-95 sm:max-w-110 md:max-w-130 max-w-95">
+                <div class="py-6 px-7">
                     <div class="flex flex-col mb-3">
                         <label>Label Note</label>
                         <input v-model="store.text.createLabel" type="text" class="border border-gray-500 focus:outline-none p-2 mt-1 rounded-sm" placeholder="Enter label name">
