@@ -28,7 +28,7 @@
                     </div>
                     
                     <div class="ml-11 flex flex-row justify-between items-center">
-                        <font-awesome-icon @click="store.addToFav(store.findLabels)" :icon="['fas', 'heart']" :class="!store.favorites.length ? 'text-gray-500' : 'text-red-600'" class="cursor-pointer"/>
+                        <font-awesome-icon @click="store.addToFav(lblTsk)" :icon="['fas', 'heart']" :class="!store.favorites.length ? 'text-gray-500' : 'text-red-600'" class="cursor-pointer"/>
                     </div>
                 </div>
                </div>
