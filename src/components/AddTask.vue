@@ -1,5 +1,5 @@
 <template>
-     <div class="rounded-lg border border-gray-400 p-3 w-full">
+     <div class="rounded-lg border border-gray-500 p-3 w-full">
              <input type="text" v-model.trim="store.text.txt" class="text-gray-600 font-bold focus:outline-none w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow" placeholder="New Task"> <br>
              <textarea placeholder="Description" v-model.trim="store.text.dsc" class="text-gray-600 focus:outline-none text-sm w-[90%] sm:max-w-[100%] lg:max-w-[100%] flex-grow"></textarea> <br>
           <div class="flex sm:flex-row flex-col sm:justify-between sm:items-center w-full">
