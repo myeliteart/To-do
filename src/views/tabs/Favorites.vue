@@ -27,8 +27,8 @@
                                </div>
 
                               <div class="flex flex-row items-center mt-2">
-                                <font-awesome-icon :class="fav.priority == 'High' ? ' text-red-600' : fav.priority == 'Medium' ? ' text-amber-600' : fav.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
-                                <small class="ml-1" :class="fav.priority == 'High' ? ' text-red-600' : fav.priority == 'Medium' ? ' text-amber-600' : fav.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ fav.priority }} Priority</small>
+                                <font-awesome-icon v-if="fav.priority !== ''" :class="fav.priority == 'High' ? ' text-red-600' : fav.priority == 'Medium' ? ' text-amber-600' : fav.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
+                                <small class="ml-1" v-if="fav.priority !== ''" :class="fav.priority == 'High' ? ' text-red-600' : fav.priority == 'Medium' ? ' text-amber-600' : fav.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ fav.priority }} Priority</small>
                             </div>
                          </div>
                     </div>
