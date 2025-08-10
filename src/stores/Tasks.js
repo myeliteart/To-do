@@ -191,18 +191,35 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
      const addLabel = () => {
-        const lessThen3 = labels.value.find(lbl => lbl == text.value.createLabel) || text.value.createLabel.length < 3
-        if(!lessThen3){
-            const newLabel = {
-                id: labels.value.length + 1,
-                txt: text.value.createLabel
+       const alreadyExists = labels.value.find(
+        lbl => lbl.txt === text.value.createLabel.trim()
+    )
+    const tooShort = text.value.createLabel.trim().length < 3
+     if (!alreadyExists && !tooShort) {
+             const newLabel = {
+                id: labels.value.length ? Math.max(...labels.value.map(l => l.id)) + 1 : 1,
+                txt: text.value.createLabel.trim()
             }
             labels.value.unshift(newLabel)
             editableLabel.value = newLabel.txt
             labelCount.value++
-            modalforLabel.value = false;
+            modalforLabel.value = false
             text.value.createLabel = ''
-        } 
+     }
+
+
+      //   const lessThen3 = labels.value.find(lbl => lbl == text.value.createLabel) || text.value.createLabel.length < 3
+      //   if(!lessThen3){
+      //       const newLabel = {
+      //           id: labels.value.length + 1,
+      //           txt: text.value.createLabel
+      //       }
+      //       labels.value.unshift(newLabel)
+      //       editableLabel.value = newLabel.txt
+      //       labelCount.value++
+      //       modalforLabel.value = false;
+      //       text.value.createLabel = ''
+      
      }
 
      const cancelLabel = () => {
@@ -213,10 +230,6 @@ export const useTasksStore = defineStore('Tasks', () => {
      const theLabelDetails = (itm) => {
         router.push({name: 'LabelDetails', params: {id: itm.toLowerCase().split(' ').join('-')}})
         findTasksWithLabel.value = itm
-     }
-
-       const theLabelDetails2 = (lbl) => {
-        router.push({name: 'LabelDetails', params: {id: lbl.txt.toLowerCase().split(' ').join('-')}})
      }
 
      const deleteLabel = () => {
@@ -245,9 +258,11 @@ export const useTasksStore = defineStore('Tasks', () => {
         isMenuOpen.value = false
      }
 
-     const taskWithLabel = computed(() => {
-        return tasks.value.filter(tsk => tsk.lbls.includes(findTasksWithLabel.value))
-     })
+   const taskWithLabel = computed(() => { 
+    return tasks.value.filter(tsk => 
+        tsk.lbls.some(lbl => lbl.id === findTasksWithLabel.value.id)
+    )
+})
 
      console.log(taskWithLabel.value)
 
@@ -265,5 +280,5 @@ export const useTasksStore = defineStore('Tasks', () => {
         return tasks.value.find(task => task.main.toLowerCase().split(' ').join('-') == route.params.id);
     })
 
-  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, cancelLabel, closeMobileMenu, theLabelDetails2, mySearch }
+  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, cancelLabel, closeMobileMenu, mySearch }
 })
