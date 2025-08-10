@@ -22,8 +22,8 @@
                                </div>
 
                               <div class="flex flex-row items-center mt-2">
-                                <font-awesome-icon v-if="store.text.selectedPriority !== ''" :class="store.text.selectedPriority == 'High' ? ' text-red-600' : store.text.selectedPriority == 'Medium' ? ' text-amber-600' : store.text.selectedPriority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
-                                <small class="ml-1" v-if="store.text.selectedPriority !== ''" :class="store.text.selectedPriority == 'High' ? ' text-red-600' : store.text.selectedPriority == 'Medium' ? ' text-amber-600' : store.text.selectedPriority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ store.text.selectedPriority }} Priority</small>
+                                <font-awesome-icon v-if="store.mySearch.priority !== ''" :class="store.mySearch.priority == 'High' ? ' text-red-600' : store.mySearch.priority == 'Medium' ? ' text-amber-600' : store.mySearch.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
+                                <small v-if="store.mySearch.priority !== ''" class="ml-1" :class="store.mySearch.priority == 'High' ? ' text-red-600' : store.mySearch.priority == 'Medium' ? ' text-amber-600' : store.mySearch.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ store.mySearch.priority }} Priority</small>
                             </div>
                          </div>
                     </div>
