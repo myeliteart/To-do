@@ -25,7 +25,7 @@
                 </button>
             </div>
             
-        <ul class="pt-3">
+        <ul class="pt-2">
              <li class="flex justify-between items-center border-t-1 border-t-gray-400 px-7">
                 <router-link to="/" class="block text-gray-600" @click="store.closeMobileMenu">
                     <font-awesome-icon :icon="['fas', 'inbox']" class="mr-1"></font-awesome-icon> 
