@@ -65,7 +65,9 @@ export const useTasksStore = defineStore('Tasks', () => {
                 id: tasks.value.length + 1,
                 main: text.value.txt,
                 desc: text.value.dsc,
-                lbls: text.value.checkedLabels,
+                lbls: text.value.checkedLabels
+               .map(id => labels.value.find(lbl => lbl.id === id))
+               .filter(lbl => lbl !== undefined),
                 priority: text.value.selectedPriority
             }
                  tasks.value.unshift(eli)
@@ -76,7 +78,7 @@ export const useTasksStore = defineStore('Tasks', () => {
                 let index = tasks.value.findIndex(itm => itm.id == editText.value.id)
                 tasks.value[index].main = text.value.txt
                 tasks.value[index].desc = text.value.dsc
-                tasks.value[index].lbls = text.value.checkedLabels
+                tasks.value[index].lbls = text.value.checkedLabels.map(id => labels.value.find(lbl => lbl.id === id)).filter(lbl => lbl !== undefined)
                 tasks.value[index].priority = text.value.selectedPriority
 
                 text.value.checkedLabels = []
@@ -175,7 +177,7 @@ export const useTasksStore = defineStore('Tasks', () => {
      const edited = (task) => {
         text.value.txt = task.main
         text.value.dsc = task.desc
-        text.value.checkedLabels = task.lbls
+        text.value.checkedLabels = task.lbls.map(lbl => lbl.id)
         text.value.selectedPriority = task.priority
         editText.value = task
      }
@@ -200,19 +202,6 @@ export const useTasksStore = defineStore('Tasks', () => {
             labelCount.value++
             text.value.createLabel = ''
      }
-
-
-      //   const lessThen3 = labels.value.find(lbl => lbl == text.value.createLabel) || text.value.createLabel.length < 3
-      //   if(!lessThen3){
-      //       const newLabel = {
-      //           id: labels.value.length + 1,
-      //           txt: text.value.createLabel
-      //       }
-      //       labels.value.unshift(newLabel)
-      //       editableLabel.value = newLabel.txt
-      //       labelCount.value++
-      //       modalforLabel.value = false;
-      //       text.value.createLabel = ''
       
      }
 
@@ -221,14 +210,19 @@ export const useTasksStore = defineStore('Tasks', () => {
         text.value.createLabel = ''
      }
      
-     const theLabelDetails = (itm) => {
-        router.push({name: 'LabelDetails', params: {id: itm.toLowerCase().split(' ').join('-')}})
-        findTasksWithLabel.value = itm
+     const theLabelDetails = (lbl) => {
+        router.push({name: 'LabelDetails', params: {id: lbl.id}})
      }
 
      const deleteLabel = () => {
         labels.value = labels.value.filter(l => l.id !== modalDeleteLabel.value.id)
         labelCount.value--
+
+         tasks.value.forEach(task => {
+            task.lbls = task.lbls.filter(lbl => lbl.id !== modalDeleteLabel.value.id)
+         })
+
+
         modalDeleteLabel.value = null
      }
 
@@ -237,6 +231,15 @@ export const useTasksStore = defineStore('Tasks', () => {
              if(editingId.value !== lbl.id) {
                 editingId.value = lbl.id
                 editableLabel.value = lbl.txt
+
+                tasks.value.forEach(task => {
+               task.lbls.forEach(lbl => {
+                  if (lbl.id === editableLabel.value.id) {
+                     lbl.txt = editableLabel.value.txt
+                  }
+               })
+               })
+
         } else {
              lbl.txt = editableLabel.value
              editingId.value = null
@@ -253,14 +256,11 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
    const taskWithLabel = computed(() => { 
-    return tasks.value.filter(tsk => tsk.lbls.some(lbl => lbl.id === findTasksWithLabel.value.id))
-})
-
-     console.log(taskWithLabel.value)
+    return tasks.value.filter(task => task.lbls.some(lbl => lbl.id === findLabels.value.id))})
 
 
      const findLabels = computed(() => {
-        return labels.value.find(lbl => lbl.txt.toLowerCase().split(' ').join('-') == route.params.id);
+        return labels.value.find(lbl => lbl.id == route.params.id);
         
      })
 
