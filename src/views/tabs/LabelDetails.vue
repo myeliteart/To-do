@@ -17,7 +17,7 @@
 
                                <div v-for="itm in lblTsk.lbls" class="flex flex-row mt-2">
                                    <font-awesome-icon :icon="['fas', 'tag']" class="mr-2 pt-1"></font-awesome-icon> 
-                                   <span>{{ itm }}</span>
+                                   <span>{{ itm.txt }}</span>
                                </div>
                                
                              <div class="flex flex-row items-center mt-2">

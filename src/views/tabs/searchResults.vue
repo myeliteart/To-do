@@ -18,7 +18,7 @@
 
                                <div v-for="itm in store.mySearch.lbls" class="flex flex-row mt-2 cursor-pointer">
                                    <font-awesome-icon :icon="['fas', 'tag']" class="mr-2 pt-1"></font-awesome-icon> 
-                                   <span @click="store.theLabelDetails(itm)" class="hover:underline">{{ itm }}</span>
+                                   <span @click="store.theLabelDetails(itm)" class="hover:underline">{{ itm.txt }}</span>
                                </div>
 
                               <div class="flex flex-row items-center mt-2">

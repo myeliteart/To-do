@@ -14,7 +14,7 @@
                   <!-- <input v-if="store.editingId == lbl.id" v-model.trim="store.editableLabel" :disabled="store.editingId == null" type="text" class="focus:outline-0 flex-grow text-md">  -->
                </div>
                <div class="ml-9 flex flex-row items-center">
-                  <font-awesome-icon @click="store.theLabelDetails(lbl.txt)" :icon="['fas', 'angle-right']" class="cursor-pointer mr-4 text-gray-500" />
+                  <font-awesome-icon @click="store.theLabelDetails(lbl)" :icon="['fas', 'angle-right']" class="cursor-pointer mr-4 text-gray-500" />
                   <font-awesome-icon @click="store.saveThisLabel(lbl)" :icon="['fas', store.editingId == lbl.id ? 'check' : 'pen']" class="cursor-pointer mr-4 text-gray-500" />
                   <font-awesome-icon @click="store.trashLbl(lbl)" :icon="['fas', 'trash']" class="cursor-pointer mr-0 text-gray-500" />
                </div>
