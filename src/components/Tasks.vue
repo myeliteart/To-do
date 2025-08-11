@@ -12,7 +12,7 @@
                    <div class="flex flex-row items-center justify-between">
                         <div>
                             <div class="flex flex-row items-center">
-                                <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointe" @change="store.completed(element)">
+                                <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointer" @change="store.completed(element)">
                                 <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-40 sm:max-w-64 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
                             </div>
 
