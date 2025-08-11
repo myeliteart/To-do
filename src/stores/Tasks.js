@@ -103,7 +103,7 @@ export const useTasksStore = defineStore('Tasks', () => {
      const cancel = () => {
         text.value.txt = ''
         text.value.dsc = ''
-        text.value.selectedPriority = null
+        text.value.selectedPriority = ''
         editText.value = null
      }
 

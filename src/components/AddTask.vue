@@ -10,11 +10,11 @@
                         {{ p }} Priority
                     </option>
                 </select>
-             <button class="cursor-pointer text-gray-600 mt-2" @click="store.modalforLabel = true">Add Label</button>
+             <button class="cursor-pointer text-gray-600 mt-2" @click="store.modalforLabel = true">{{ store.editText == null ? 'Add' : 'Edit' }} Label</button>
             </div>
         <div class="flex flex-row sm:justify-end mt-5 sm:mt-0 items-center w-full">
-             <base-button :mode="disabling1 ? 'disabled2' : 'reverse'" @click="store.cancel">Cancel</base-button>
-             <base-button @click="store.addTask" :class="disabling ? 'disabled' : ''" class="ml-2">
+             <base-button :disabled="disabling1" mode="reverse" @click="store.cancel">Cancel</base-button>
+             <base-button @click="store.addTask" :disabled="disabling" class="ml-2">
                 <font-awesome-icon :icon="['fas', store.editText == null ? 'plus' : 'pen']" class="cursor-pointer mr-1"/>
                  {{ store.editText == null ? 'Add' : 'Edit' }} Task
             </base-button>
@@ -76,12 +76,12 @@
         background-color: rgb(163, 163, 163);
         border: none;
     }
-     .disabled2 {
+     /* .disabled2 {
         pointer-events: none;
         border: 1px solid rgb(163, 163, 163);
         background-color: transparent;
         color: rgb(163, 163, 163);
-    }
+    } */
     textarea { resize: none; }
 
     input[type=checkbox], input[type=radio] {

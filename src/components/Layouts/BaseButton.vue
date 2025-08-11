@@ -6,8 +6,9 @@
 
 <script setup>
     const props = defineProps(['mode'])
-    import { useTasks } from '@/composables/Tasks';
-    const { tasks } = useTasks();
+    
+    // import { useTasks } from '@/composables/Tasks';
+    // const { tasks } = useTasks();
 </script>
 
 <style scoped>
@@ -24,6 +25,13 @@
         padding: 9px 16px;
         border: 1px solid rgb(205, 13, 13);
         border-radius: .3rem;
+    }
+
+    button:disabled {
+        pointer-events: none;
+        border: 1px solid rgb(163, 163, 163);
+        background-color: transparent;
+        color: rgb(163, 163, 163);
     }
 
     .reverse {
