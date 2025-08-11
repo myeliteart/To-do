@@ -21,8 +21,8 @@
                                </div>
                                
                              <div class="flex flex-row items-center mt-2">
-                                <font-awesome-icon :class="store.text.selectedPriority == 'High' ? ' text-red-600' : store.text.selectedPriority == 'Medium' ? ' text-amber-600' : store.text.selectedPriority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
-                                <small class="ml-1" :class="store.text.selectedPriority == 'High' ? ' text-red-600' : store.text.selectedPriority == 'Medium' ? ' text-amber-600' : store.text.selectedPriority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ store.text.selectedPriority }} Priority</small>
+                                <font-awesome-icon v-if="lblTsk.priority !== ''" :class="lblTsk.priority == 'High' ? ' text-red-600' : lblTsk.priority == 'Medium' ? ' text-amber-600' : lblTsk.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
+                                <small class="ml-1" v-if="lblTsk.priority !== ''" :class="lblTsk.priority == 'High' ? ' text-red-600' : lblTsk.priority == 'Medium' ? ' text-amber-600' : lblTsk.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ lblTsk.priority }} Priority</small>
                             </div>
                          </div>
                     </div>
