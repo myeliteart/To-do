@@ -12,7 +12,7 @@
                    <div class="flex flex-row items-center justify-between">
                         <div>
                             <div class="flex flex-row items-center">
-                                <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointer" @change="store.completed(element)">
+                                <input type="checkbox" v-model="store.completedItems" :value="element.main" class="cursor-pointe" @change="store.completed(element)">
                                 <div :class="store.completedItems.find(itm => itm == element.main) ? 'strike' : ''" class="ml-2 wrap-break-word max-w-40 sm:max-w-64 lg:max-w-[630px] flex-grow"> {{ element.main }}</div>
                             </div>
 
@@ -22,7 +22,7 @@
                         
                                 <div v-for="itm in element.lbls" class="flex flex-row mt-2 cursor-pointer">
                                     <font-awesome-icon :icon="['fas', 'tag']" class="mr-1 pt-1"></font-awesome-icon> 
-                                    <span @click="store.theLabelDetails(itm)" class="hover:underline">{{ itm }}</span>
+                                    <span @click="store.theLabelDetails(itm)" class="hover:underline">{{ itm.txt }}</span>
                                 </div>
                                 <div class="flex flex-row items-center mt-2">
                                     <font-awesome-icon v-if="element.priority !== ''" :class="element.priority == 'High' ? 'text-red-600' : element.priority == 'Medium' ? 'text-amber-600' : element.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
