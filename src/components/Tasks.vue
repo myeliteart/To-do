@@ -31,9 +31,9 @@
                         </div> 
                             
                         <div class="ml-9 flex flex-row items-center">
-                            <font-awesome-icon @click="store.edited(element)" :icon="['fas', 'pen']" class="cursor-pointer mr-4 text-gray-500" />
-                            <font-awesome-icon @click="store.trashIt(element)" :icon="['fas', 'trash']" class="cursor-pointer mr-4 text-gray-500" />
-                            <font-awesome-icon @click="store.addToFav(element)" :icon="['fas', 'heart']" :class="store.favorites.find(itm => itm.main == element.main) ? 'text-red-600' : 'text-gray-500'"  class="cursor-pointer"/>
+                           <div :class="store.completedItems.find(itm => itm == element.main) ? 'hidden' : 'block'"><font-awesome-icon @click="store.edited(element)" :icon="['fas', 'pen']" class="cursor-pointer mr-4 text-gray-500" /></div>
+                            <div :class="store.completedItems.find(itm => itm == element.main) ? 'mr-0' : 'mr-4'"><font-awesome-icon @click="store.trashIt(element)" :icon="['fas', 'trash']" class="cursor-pointer text-gray-500" /></div>
+                             <div :class="store.completedItems.find(itm => itm == element.main) ? 'hidden' : 'block'"><font-awesome-icon @click="store.addToFav(element)" :icon="['fas', 'heart']" :class="store.favorites.find(itm => itm.main == element.main) ? 'text-red-600' : 'text-gray-500'"  class="cursor-pointer"/></div>
                             <div v-if="store.tasks.length > 1" class="hidden lg:block"><font-awesome-icon  @mouseover="store.isHovered = true" @mouseleave="store.isHovered = false" :icon="['fas', 'grip-vertical']" class="ml-5" :class="{'draggable-active': store.isHovered}"></font-awesome-icon></div>
                         </div>
                  </div>
