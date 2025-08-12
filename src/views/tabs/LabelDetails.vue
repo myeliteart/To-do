@@ -9,10 +9,10 @@
                     <div>
                         <div class="flex flex-row items-center wrap-break-word">
                             <input type="checkbox" v-model="store.completedItems" :value="lblTsk.main" class="cursor-pointer" @change="store.completed(lblTsk)">
-                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="md:max-w-150 sm:max-w-95 max-w-110 ml-2 text-md"> {{ lblTsk.main }}</div>
+                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow ml-2 text-md"> {{ lblTsk.main }}</div>
                         </div>
                         
-                         <div class="wrap-break-word w-full md:max-w-150 sm:max-w-95 max-w-110 mt-1">
+                         <div class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow mt-1">
                                <small class="block">{{ lblTsk.desc }}</small>
 
                                <div v-for="itm in lblTsk.lbls" class="flex flex-row mt-2">
