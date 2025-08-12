@@ -117,6 +117,13 @@ export const useTasksStore = defineStore('Tasks', () => {
             } else {
                  completedCount.value++
                  isChecked.value = true
+
+                  text.value.txt = ''
+                  text.value.dsc = ''
+                  text.value.selectedPriority = ''
+                  editText.value = null
+
+
                  setTimeout(function(){
                     isChecked.value = false
                 }, 5000)
