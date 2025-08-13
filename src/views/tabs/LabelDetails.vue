@@ -20,7 +20,7 @@
                                    <span>{{ itm.txt }}</span>
                                </div>
                                
-                             <div class="flex flex-row items-center mt-2">
+                            <div class="flex flex-row items-center mt-2">
                                 <font-awesome-icon v-if="lblTsk.priority !== ''" :class="lblTsk.priority == 'High' ? ' text-red-600' : lblTsk.priority == 'Medium' ? ' text-amber-600' : lblTsk.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'" :icon="['fas', 'flag']"></font-awesome-icon>
                                 <small class="ml-1" v-if="lblTsk.priority !== ''" :class="lblTsk.priority == 'High' ? ' text-red-600' : lblTsk.priority == 'Medium' ? ' text-amber-600' : lblTsk.priority == 'Low' ? 'text-blue-700' : 'text-gray-500'">{{ lblTsk.priority }} Priority</small>
                             </div>
@@ -28,7 +28,7 @@
                     </div>
                     
                     <div class="ml-11 flex flex-row justify-between items-center">
-                        <font-awesome-icon @click="store.addToFav(lblTsk)" :icon="['fas', 'heart']" :class="!store.favorites.length ? 'text-gray-500' : 'text-red-600'" class="cursor-pointer"/>
+                        <font-awesome-icon @click="store.addToFav(lblTsk)" :icon="['fas', 'heart']" :class="store.favorites.find(itm => itm.main == lblTsk.main) ? 'text-red-600' : 'text-gray-500'" class="cursor-pointer"/>
                     </div>
                 </div>
                </div>
