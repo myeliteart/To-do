@@ -110,21 +110,19 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
       const completed = (task) => {
-            const completedItem = {
-               main: task.main,
-               completedAt: new Date()
-            }
-            taskCompleted.value.unshift(completedItem)
+            taskCompleted.value.unshift(task.main)
             const hello = completedItems.value.find(itm => itm == task.main)
             if(!hello) {
                  completedCount.value--
             } else {
                  completedCount.value++
                  isChecked.value = true
+
                   text.value.txt = ''
                   text.value.dsc = ''
                   text.value.selectedPriority = ''
                   editText.value = null
+
 
                  setTimeout(function(){
                     isChecked.value = false
@@ -280,6 +278,6 @@ export const useTasksStore = defineStore('Tasks', () => {
       const mySearch = computed (() => {
         return tasks.value.find(task => task.main.toLowerCase().split(' ').join('-') == route.params.id);
     })
-    
+
   return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, mySearch }
 })

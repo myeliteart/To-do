@@ -6,14 +6,10 @@
     <div v-if="store.completedItems.length">
         <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
         <p class="pb-1 mb-0 text-heading border-b-1 border-b-gray-400">Completed</p>
-        <div class="text-gray-600" v-for="task in store.taskCompleted" :key="task.main">
-            <div class="flex items-center py-4">
+        <div class="text-gray-600" v-for="task in store.completedItems">
+            <div class="flex items-center">
                 <font-awesome-icon :icon="['fas', 'circle-check']" class="mr-2 text-green-700"></font-awesome-icon> 
-                <div class="flex flex-col">
-                    <small>{{ task.completedAt.toLocaleDateString() }} - {{ task.completedAt.toLocaleTimeString([], { timeStyle: 'short' }) }}</small>
-                    <div>{{ 'You completed a task:' }} <span class="font-bold">{{ task.main }}</span></div>
-                </div>
-                
+                <p class="py-4">{{ 'You completed a task:' }} <span class="font-bold">{{ task }}</span></p>
             </div>
             
             <hr class="text-gray-400">
