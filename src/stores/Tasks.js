@@ -8,7 +8,7 @@ export const useTasksStore = defineStore('Tasks', () => {
     
      let tasks = ref([]);
      let favorites = ref([]);
-     let taskCompleted = ref([]);
+   //   let taskCompleted = ref([]);
      let labels = ref([]);
      let taskCount = ref(0);
      let completedCount = ref(0);
@@ -110,7 +110,7 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
       const completed = (task) => {
-            taskCompleted.value.unshift(task.main)
+            // completedItems.value.unshift(task.main)
             const hello = completedItems.value.find(itm => itm == task.main)
             if(!hello) {
                  completedCount.value--
@@ -279,5 +279,5 @@ export const useTasksStore = defineStore('Tasks', () => {
         return tasks.value.find(task => task.main.toLowerCase().split(' ').join('-') == route.params.id);
     })
 
-  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, taskCompleted, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, mySearch }
+  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, mySearch }
 })
