@@ -1,7 +1,7 @@
 <template>
   <div class="md:min-h-screen flex md:flex-row flex-col justify-between w-full">
     <the-nav></the-nav>
-    <section class="w-[85%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[950px] sm:px-7 px-0 mx-auto md:my-11 my-9 relative">
+    <section class="w-full max-w-[97%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[950px] sm:px-5 px-8 mx-auto md:my-11 my-9 relative">
       <router-view></router-view>
    </section>
   </div>
