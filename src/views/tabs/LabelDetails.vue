@@ -12,7 +12,7 @@
                             <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="grow ml-2 text-md w-full"> {{ lblTsk.main }}</div>
                         </div>
                         
-                         <div class="w-full grow mt-1">
+                         <div class="w-full grow mt-2">
                                <small class="block">{{ lblTsk.desc }}</small>
 
                                <div v-for="itm in lblTsk.lbls" class="flex flex-row mt-2">
