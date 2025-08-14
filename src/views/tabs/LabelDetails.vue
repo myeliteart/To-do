@@ -5,9 +5,9 @@
          <ul>
             <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel" :key="lblTsk.id">
                <div class="py-4">
-                <div class="flex flex-row items-center justify-between gap-5">
+                <div class="flex flex-row items-center justify-between gap-5 wrap-break-word">
                     <div>
-                        <div class="flex flex-row items-center wrap-break-word">
+                        <div class="flex flex-row items-center">
                             <input type="checkbox" v-model="store.completedItems" :value="lblTsk.main" class="cursor-pointer" @change="store.completed(lblTsk)">
                             <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="grow ml-2 text-md w-full"> {{ lblTsk.main }}</div>
                         </div>
