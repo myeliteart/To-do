@@ -5,19 +5,19 @@
          <ul>
             <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel" :key="lblTsk.id">
                <div class="py-4">
-                <div class="flex flex-row items-center justify-between gap-5 wrap-break-word">
+                <div class="flex flex-row items-center justify-between gap-5">
                     <div>
                         <div class="flex flex-row items-center">
                             <input type="checkbox" v-model="store.completedItems" :value="lblTsk.main" class="cursor-pointer" @change="store.completed(lblTsk)">
-                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="grow ml-2 text-md w-full"> {{ lblTsk.main }}</div>
+                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="grow ml-2 text-md w-full wrap-break-word"> {{ lblTsk.main }}</div>
                         </div>
                         
                          <div class="w-full grow mt-2">
-                               <small class="block">{{ lblTsk.desc }}</small>
+                               <small class="block wrap-break-word">{{ lblTsk.desc }}</small>
 
                                <div v-for="itm in lblTsk.lbls" class="flex flex-row mt-2">
                                    <font-awesome-icon :icon="['fas', 'tag']" class="mr-2 pt-1"></font-awesome-icon> 
-                                   <span>{{ itm.txt }}</span>
+                                   <span class="wrap-break-word">{{ itm.txt }}</span>
                                </div>
                                
                             <div class="flex flex-row items-center mt-2">
