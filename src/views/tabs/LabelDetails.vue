@@ -5,14 +5,14 @@
          <ul>
             <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel" :key="lblTsk.id">
                <div class="py-4">
-                <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-row items-center justify-between gap-5">
                     <div>
                         <div class="flex flex-row items-center wrap-break-word">
                             <input type="checkbox" v-model="store.completedItems" :value="lblTsk.main" class="cursor-pointer" @change="store.completed(lblTsk)">
-                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow ml-2 text-md"> {{ lblTsk.main }}</div>
+                            <div :class="store.completedItems.find(itm => itm == lblTsk.main) ? 'strike' : ''" class="grow ml-2 text-md w-full"> {{ lblTsk.main }}</div>
                         </div>
                         
-                         <div class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow mt-1">
+                         <div class="w-full grow mt-1">
                                <small class="block">{{ lblTsk.desc }}</small>
 
                                <div v-for="itm in lblTsk.lbls" class="flex flex-row mt-2">
