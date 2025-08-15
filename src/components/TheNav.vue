@@ -20,7 +20,7 @@
                     <h2 @click="" class="text-bigger-heading font-bold mb-2.5 text-red-600 font-ds">To Do App</h2>
                 </router-link>
 
-                <button @click="store.toggleMenu" class="absolute top-4 right-4 text-2xl cursor-pointer">
+                <button @click="store.toggleMenu" class="absolute top-5 right-4 text-2xl cursor-pointer">
                     <font-awesome-icon :icon="['fas', 'xmark']"></font-awesome-icon>
                 </button>
             </div>
