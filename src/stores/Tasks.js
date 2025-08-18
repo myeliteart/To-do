@@ -21,7 +21,6 @@ export const useTasksStore = defineStore('Tasks', () => {
      const search = ref('');
      const isHovered = ref(false);
      const currentPriority = ref(null);
-     const apiKey = 'fe1f1498a88540b3abb211011251408'
 
      const sResults = () => {  
         if(search.value == searchItem.value.main) {
