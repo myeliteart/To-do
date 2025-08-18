@@ -1,6 +1,6 @@
 <template>
      <div v-if="store.weatherData" class="text-xs sm:text-sm flex items-center gap-x-3 sm:gap-x-5 gap-y-0">
-            <img :src="`https://openweathermap.org/img/wn/${store.weatherData.weather[0].icon}@2x.png`" class="w-8 h-8 sm:w-12 sm:h-12">
+            <img :src="`https://openweathermap.org/img/wn/${store.weatherData.weather[0].icon}@2x.png`" class="hidden sm:block w-8 h-8 sm:w-12 sm:h-12">
             <h2 class="sm:text-base font-medium">{{ store.weatherData.name }}</h2>
             <p>
                 <font-awesome-icon :icon="['fas', 'temperature-full']" class="mr-0"></font-awesome-icon> 
