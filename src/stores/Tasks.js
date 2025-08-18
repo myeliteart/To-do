@@ -1,6 +1,7 @@
 import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useRouter, useRoute } from 'vue-router';
+import axios from 'axios';
 
 export const useTasksStore = defineStore('Tasks', () => {
     const router = useRouter();
@@ -20,7 +21,7 @@ export const useTasksStore = defineStore('Tasks', () => {
      const search = ref('');
      const isHovered = ref(false);
      const currentPriority = ref(null);
-     
+     const apiKey = 'fe1f1498a88540b3abb211011251408'
 
      const sResults = () => {  
         if(search.value == searchItem.value.main) {
@@ -110,19 +111,17 @@ export const useTasksStore = defineStore('Tasks', () => {
      }
 
       const completed = (task) => {
-            // completedItems.value.unshift(task.main)
+           // taskCompleted.value.unshift(task.main)
             const hello = completedItems.value.find(itm => itm == task.main)
             if(!hello) {
                  completedCount.value--
             } else {
                  completedCount.value++
                  isChecked.value = true
-
                   text.value.txt = ''
                   text.value.dsc = ''
                   text.value.selectedPriority = ''
                   editText.value = null
-
 
                  setTimeout(function(){
                     isChecked.value = false
@@ -169,7 +168,6 @@ export const useTasksStore = defineStore('Tasks', () => {
         //  trash.value.push(modalFav.value);
         //  trashCount.value++
          modalFav.value = null;
-
     }
 
      const cancelDeletion = () => {
@@ -177,7 +175,7 @@ export const useTasksStore = defineStore('Tasks', () => {
         modalFav.value = null;
         modalTrash.value = null;
         modalforLabel.value = false;
-        modalforPriority.value = false
+        modalforPriority.value = false;
         modalDeleteLabel.value = null;
      }
 
@@ -200,16 +198,15 @@ export const useTasksStore = defineStore('Tasks', () => {
     )
     const tooShort = text.value.createLabel.length < 3
      if (!alreadyExists && !tooShort) {
-             const newLabel = {
-                id: labels.value.length + 1,
-                txt: text.value.createLabel
-            }
-            labels.value.unshift(newLabel)
-            editableLabel.value = newLabel.txt
-            labelCount.value++
-            text.value.createLabel = ''
-     }
-      
+            const newLabel = {
+            id: labels.value.length + 1,
+            txt: text.value.createLabel
+         }
+         labels.value.unshift(newLabel)
+         editableLabel.value = newLabel.txt
+         labelCount.value++
+         text.value.createLabel = ''
+     }  
      }
 
      const cancelLabel = () => {
@@ -228,8 +225,6 @@ export const useTasksStore = defineStore('Tasks', () => {
          tasks.value.forEach(task => {
             task.lbls = task.lbls.filter(lbl => lbl.id !== modalDeleteLabel.value.id)
          })
-
-
         modalDeleteLabel.value = null
      }
 
@@ -239,7 +234,7 @@ export const useTasksStore = defineStore('Tasks', () => {
                 editingId.value = lbl.id
                 editableLabel.value = lbl.txt
 
-                tasks.value.forEach(task => {
+               tasks.value.forEach(task => {
                task.lbls.forEach(lbl => {
                   if (lbl.id === editableLabel.value.id) {
                      lbl.txt = editableLabel.value.txt
@@ -262,13 +257,26 @@ export const useTasksStore = defineStore('Tasks', () => {
         isMenuOpen.value = false
      }
 
-   const taskWithLabel = computed(() => { 
+     const weatherData = ref(null)
+
+      const getWeaterData = () => {
+           axios.get(
+            'https://api.openweathermap.org/data/2.5/weather?q=New York&units=imperial&appid=4e9f8834496e02ff06bddafa1b9660f2'
+           )
+           .then(response => {
+                console.log(response.data)
+                weatherData.value = response.data
+           })
+           .catch(err => {
+             console.log(err)
+           })
+        };
+
+    const taskWithLabel = computed(() => { 
     return tasks.value.filter(task => task.lbls.some(lbl => lbl.id === findLabels.value.id))})
 
-
      const findLabels = computed(() => {
-        return labels.value.find(lbl => lbl.id == route.params.id);
-        
+        return labels.value.find(lbl => lbl.id == route.params.id); 
      })
 
      const suggessions = computed (() => {
@@ -277,7 +285,7 @@ export const useTasksStore = defineStore('Tasks', () => {
 
       const mySearch = computed (() => {
         return tasks.value.find(task => task.main.toLowerCase().split(' ').join('-') == route.params.id);
-    })
+      })
 
-  return { tasks, text, strikeThrogh, modal, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, mySearch }
+  return { tasks, text, strikeThrogh, modal, weatherData, isHovered, isMenuOpen, editingId, editText, taskWithLabel, modalforLabel, editableLabel, currentLabel, completedItems, findTasksWithLabel, modalDeleteLabel, favorites, labelCount, search, modalFav, suggessions, modalTrash, taskCount, completedCount, favoritesCount, priority, labels, modalforPriority, modalSearch, isChecked, searchItem, findLabels, currentPriority, trashSearch, edited, addTask, cancel, completed, cancelDeletion, addToFav, confirmDeletion, confirmFaveDeletion, suggesionResult, trashIt, trashLbl, addLabel, saveThisLabel, cancelLabel, theLabelDetails, confirmSearchDlt, toggleMenu, sResults, deleteLabel, closeMobileMenu, getWeaterData, mySearch }
 })

@@ -1,18 +1,24 @@
 <template>
     <div v-if="store.search.length">
         <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
-        <p class="pb-1 text-heading border-b-1 border-b-gray-400 wrap-break-word">Results for "{{ store.mySearch.main }}"</p>
+
+        <div class="flex items-center justify-between md:gap-7 gap-0 pb-1 text-heading border-b-1 border-b-gray-400">
+            <p class="text-heading max-w-40 sm:max-w-64 md:max-w-64 lg:max-w-[525px] grow wrap-break-word">Results for "{{ store.mySearch.main }}"</p>
+            <div>
+                <weather></weather>
+            </div>
+        </div>
         <ul>
             <li class="text-gray-600 border-t-1 border-t-gray-400 w-full">
                <div class="py-4">
-                <div class="flex flex-row items-center justify-between gap-5">
+                <div class="flex flex-row items-center justify-between">
                     <div>
-                         <div class="flex flex-row items-center">
+                         <div class="flex flex-row items-center wrap-break-word">
                             <input type="checkbox" v-model="store.completedItems" :value="store.mySearch.main" class="cursor-pointer" @change="store.completed(store.mySearch)">
-                            <div :class="store.completedItems.find(itm => itm == store.mySearch.main) ? 'strike' : ''" class="grow w-full ml-2"> {{ store.mySearch.main }}</div>
+                            <div :class="store.completedItems.find(itm => itm == store.mySearch.main) ? 'strike' : ''" class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow ml-2"> {{ store.mySearch.main }}</div>
                         </div>
                         
-                         <div class="grow w-full mt-1">
+                         <div class="wrap-break-word max-w-48 sm:max-w-64 lg:max-w-[630px] flex-grow mt-1">
                                <small class="block">{{ store.mySearch.desc }}</small>
 
                                <div v-for="itm in store.mySearch.lbls" class="flex flex-row mt-2 cursor-pointer">
@@ -52,6 +58,7 @@
 </template>
 
 <script setup>
+    import Weather from '@/components/Weather.vue';
      import { useRouter, useRoute } from 'vue-router';
      const router = useRouter();
      const route = useRoute();

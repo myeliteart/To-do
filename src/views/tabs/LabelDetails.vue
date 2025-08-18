@@ -1,7 +1,12 @@
 <template>
     <div v-if="store.labels.length">
-         <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
-         <p class="text-heading pb-1 wrap-break-word" :class="!store.taskWithLabel.length ? 'border-b-1 border-gray-400' : 'border-b-0'">{{ store.findLabels.txt }}</p>
+        <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
+        <div class="flex items-center justify-between md:gap-7 gap-0"  :class="!store.taskWithLabel.length ? 'border-b-1 border-gray-400' : 'border-b-0'">
+             <p class="text-heading pb-1 wrap-break-word max-w-40 sm:max-w-64 md:max-w-64 lg:max-w-[525px] grow">{{ store.findLabels.txt }}</p>
+             <div>
+                <weather></weather>
+            </div>
+            </div>
          <ul>
             <li class="text-gray-600 border-t-1 border-t-gray-400" v-for="lblTsk in store.taskWithLabel" :key="lblTsk.id">
                <div class="py-4">
@@ -38,6 +43,8 @@
 </template>
 
 <script setup>
+    import Weather from '@/components/Weather.vue';
+
      import { useRouter, useRoute } from 'vue-router';
      const router = useRouter();
      const route = useRoute();

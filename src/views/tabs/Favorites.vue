@@ -6,7 +6,13 @@
    
     <div v-if="store.favorites.length">
      <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
-    <p class="pb-0 text-heading border-b-1 border-b-gray-400">Favorites</p>
+
+    <div class="border-b-1 border-b-gray-400 flex items-center justify-between md:gap-x-7 gap-0">
+        <p class="pb-0 text-heading">Favorites</p>
+        <div>
+            <weather></weather>
+        </div>
+    </div>
      <ul>
         <li v-for="fav in store.favorites" :key="fav.id" class="text-gray-600 mt-0 w-full">
             <div class="py-4">
@@ -54,6 +60,7 @@
 </template>
 
     <script setup>
+        import Weather from '@/components/Weather.vue';
         import { useRouter } from 'vue-router';
         const router = useRouter();
         

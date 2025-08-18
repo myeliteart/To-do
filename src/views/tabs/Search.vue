@@ -1,7 +1,13 @@
 <template>
     <div  v-if="store.tasks.length">
     <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
-    <p class="text-heading">Search</p>
+     <div class="flex items-center justify-between md:gap-x-7 gap-0">
+        <p class="text-heading">Search</p>
+         <div>
+            <weather></weather>
+        </div>
+     </div>
+    
       <div class="rounded-sm border border-gray-300 mt-1 w-full" v-if="store.tasks.length">
         <div class="flex flex-row items-center justify-between">
             <input type="text" @keyup.enter="store.sResults" v-model="store.search" class="text-gray-600 focus:outline-none p-3  flex-grow" placeholder="Search...">
@@ -21,6 +27,7 @@
 </template>
 
 <script setup>
+  import Weather from '@/components/Weather.vue';
      import { useRouter } from 'vue-router';
      const router = useRouter();
      

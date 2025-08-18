@@ -1,7 +1,13 @@
 <template>
     <font-awesome-icon @click="router.back" :icon="['fas', 'arrow-left']" class="cursor-pointer"/>
     <div>
-   <p class="pb-0 text-heading border-b-1 border-b-gray-400">Labels</p>
+    <div class="border-b-1 border-b-gray-400 flex items-center justify-between md:gap-x-7 gap-0">
+        <p class="pb-0 text-heading">Labels</p>
+        <div>
+            <weather></weather>
+        </div>
+    </div>
+   
     <ul v-if="store.labels.length">
       <li v-for="lbl in store.labels" :key="lbl.id" class="text-gray-600 mt-0">
             <div class="flex items-center justify-between w-full gap-2 py-4">
@@ -60,6 +66,7 @@
 </template>
 
 <script setup>
+     import Weather from '@/components/Weather.vue';
    import { computed } from 'vue';
      import { useRouter } from 'vue-router';
      const router = useRouter();
