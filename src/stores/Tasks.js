@@ -2,21 +2,22 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 import { useRouter, useRoute } from 'vue-router';
 import axios from 'axios';
+import { useLocalStorage } from '@vueuse/core';
 
 export const useTasksStore = defineStore('Tasks', () => {
     const router = useRouter();
     const route = useRoute();
     
-     let tasks = ref([]);
-     let favorites = ref([]);
-   //   let taskCompleted = ref([]);
-     let labels = ref([]);
-     let taskCount = ref(0);
-     let completedCount = ref(0);
-     let favoritesCount = ref(0);
-     let labelCount = ref(0)
+     let tasks = useLocalStorage('tasks', [])
+     let favorites = useLocalStorage('favorites', [])
+     let labels = useLocalStorage('labels', [])
+     let completedItems = useLocalStorage('completedItems', [])
+    // let taskCompleted = ref([]);
+     const taskCount = computed(() => tasks.value.length)
+     const completedCount = computed(() => completedItems.value.length)
+     const favoritesCount = computed(() => favorites.value.length)
+     const labelCount = computed(() => labels.value.length)
      let isChecked = ref (false);
-     let completedItems = ref ([]);
      const searchItem = ref (null)
      const search = ref('');
      const isHovered = ref(false);
